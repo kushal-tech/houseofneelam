@@ -11,17 +11,17 @@ const API = `${BACKEND_URL}/api`;
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const { cart, total, clearCart } = useCart();
+  const { cart, total, clearCart, loading: cartLoading } = useCart();
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [guestEmail, setGuestEmail] = useState('');
   const [guestPhone, setGuestPhone] = useState('');
 
   useEffect(() => {
-    if (cart.length === 0) {
+    if (!cartLoading && cart.length === 0) {
       navigate('/products');
     }
-  }, [cart, navigate]);
+  }, [cart, cartLoading, navigate]);
 
   const handleCheckout = async (e) => {
     e.preventDefault();
