@@ -4,17 +4,26 @@ const CartContext = createContext(null);
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
-      setCart(JSON.parse(savedCart));
+      try {
+        setCart(JSON.parse(savedCart));
+      } catch (error) {
+        console.error('Error loading cart:', error);
+        setCart([]);
+      }
     }
+    setLoading(false);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+    if (!loading) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  }, [cart, loading]);
 
   const addToCart = (product, quantity = 1) => {
     setCart(prev => {
