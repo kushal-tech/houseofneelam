@@ -72,6 +72,14 @@ const Checkout = () => {
     }
   };
 
+  if (cartLoading) {
+    return (
+      <div className="min-h-screen bg-neutral-alabaster flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold-metallic"></div>
+      </div>
+    );
+  }
+
   if (cart.length === 0) return null;
 
   return (
