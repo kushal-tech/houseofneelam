@@ -474,7 +474,7 @@ async def create_payment_session(checkout: CheckoutRequest, request: Request):
         cancel_url=cancel_url,
         metadata={
             "order_id": order["order_id"],
-            "user_id": order.get("user_id", "guest")
+            "user_id": order.get("user_id") or "guest"
         }
     )
     
