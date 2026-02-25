@@ -1,0 +1,154 @@
+{
+  "brand_identity": {
+    "name": "House of Neelam",
+    "core_values": ["Timeless Elegance", "Artisanal Perfection", "Trust", "Royal Heritage"],
+    "design_persona": "The Modern Monarch",
+    "emotional_tone": "Luxurious, Intimate, Serene, Expensive"
+  },
+  "theme_strategy": {
+    "mode_logic": "Hybrid",
+    "customer_view": "Light Mode (The Atelier) - Focus on clarity, trust, and product detail. Backgrounds are soft creams and whites.",
+    "admin_view": "Dark Mode (The Vault) - Focus on data density, reduced eye strain, and 'Control Center' aesthetic. Backgrounds are deep sapphire and charcoal.",
+    "toggle_available": true
+  },
+  "colors": {
+    "palette_name": "Sapphire & Gold",
+    "primary": {
+      "sapphire_deep": "#0F1F38",
+      "sapphire_royal": "#1B3B6F",
+      "sapphire_vibrant": "#24549C"
+    },
+    "accent": {
+      "gold_matte": "#C5A059",
+      "gold_metallic": "#D4AF37",
+      "gold_pale": "#E6D2A0"
+    },
+    "neutral": {
+      "alabaster": "#F9F9F7",
+      "porcelain": "#FFFFFF",
+      "charcoal": "#1A1A1A",
+      "stone": "#8C8C8C"
+    },
+    "semantic": {
+      "bg_customer": "#FFFFFF",
+      "bg_customer_secondary": "#F9F9F7",
+      "text_customer_primary": "#0F1F38",
+      "text_customer_secondary": "#5C6B7F",
+      "bg_admin": "#0B1121",
+      "bg_admin_card": "#151F32",
+      "text_admin_primary": "#F8FAFC",
+      "text_admin_secondary": "#94A3B8",
+      "border_gold": "#D4AF37",
+      "success": "#2D6A4F",
+      "error": "#9B2226"
+    }
+  },
+  "typography": {
+    "font_families": {
+      "heading": "Playfair Display, serif",
+      "body": "Manrope, sans-serif",
+      "accent": "Cinzel, serif"
+    },
+    "weights": {
+      "heading_hero": "400 (Regular) or 500 (Medium) - Let the shape speak",
+      "heading_section": "600 (SemiBold)",
+      "body_text": "300 (Light) or 400 (Regular)",
+      "ui_labels": "500 (Medium) - Uppercase with tracking"
+    },
+    "rules": {
+      "headings": "Use Playfair Display. Tracking: tight (-0.02em). Line-height: 1.1.",
+      "overline": "Use Manrope Uppercase. Tracking: wide (0.15em). Color: Gold or Muted Blue.",
+      "prices": "Use Manrope. Font-feature-settings: 'tnum' (Tabular numbers) for alignment.",
+      "contrast": "Never use pure black text. Use #0F1F38 (Deep Sapphire) or #1A1A1A (Charcoal)."
+    },
+    "installation": "Import from Google Fonts: Playfair Display (400,500,600,700), Manrope (300,400,500,600), Cinzel (400,500)"
+  },
+  "ui_components": {
+    "global_radius": "0px (Sharp) or 2px (Micro-rounded) - No pill shapes except buttons",
+    "buttons": {
+      "primary": "Solid Deep Sapphire bg, White text. Sharp corners or slightly rounded (2px). Hover: Lift + Gold Border.",
+      "secondary": "Transparent bg, Deep Sapphire border. Text Deep Sapphire.",
+      "accent": "Solid Gold bg, White text. Use sparingly for 'Add to Cart'."
+    },
+    "cards": {
+      "product_card": "Minimal. No border, no shadow initially. Image aspect ratio: 3:4 (Portrait). Hover: Image zoom + slight shadow.",
+      "admin_card": "Flat dark background (#151F32). 1px border (#1E293B)."
+    },
+    "inputs": {
+      "style": "Underline only or Minimal Border. Background: Transparent. Border-bottom: 1px solid #E2E8F0. Focus: Border-bottom Color Gold."
+    }
+  },
+  "spacing_layout": {
+    "container_max_width": "1600px",
+    "grid_system": {
+      "customer_listing": "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16",
+      "admin_dashboard": "grid-cols-1 md:grid-cols-4 gap-6",
+      "bento_grid": "Use for Collections. Mix col-span-2 row-span-2 (Hero) with col-span-1 (Detail)."
+    },
+    "spacing_scale": {
+      "section_padding": "py-24 or py-32",
+      "element_gap": "gap-8"
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_backgrounds": [
+        "https://images.unsplash.com/photo-1603739592187-716a8aafb22c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwyfHxibGFjayUyMG1hcmJsZSUyMGdvbGQlMjB0ZXh0dXJlfGVufDB8fHx8MTc3MjAyMTM2MXww&ixlib=rb-4.1.0&q=85",
+        "https://images.pexels.com/photos/8901265/pexels-photo-8901265.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      ],
+      "product_placeholders": [
+        {
+          "category": "Rings",
+          "url": "https://images.unsplash.com/photo-1763256614634-7feb3ff79ff3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBnb2xkJTIwZGlhbW9uZCUyMHJpbmclMjBqZXdlbHJ5fGVufDB8fHx8MTc3MjAyMTM1OHww&ixlib=rb-4.1.0&q=85",
+          "alt": "Diamond Ring on Satin"
+        },
+        {
+          "category": "Necklaces",
+          "url": "https://images.pexels.com/photos/13924051/pexels-photo-13924051.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+          "alt": "Layered Gold Necklaces"
+        },
+        {
+          "category": "Earrings",
+          "url": "https://images.unsplash.com/photo-1765614765034-ab49d03d4c28?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBnb2xkJTIwZGlhbW9uZCUyMHJpbmclMjBqZXdlbHJ5fGVufDB8fHx8MTc3MjAyMTM1OHww&ixlib=rb-4.1.0&q=85",
+          "alt": "Gold Earrings Detail"
+        }
+      ],
+      "editorial_shots": [
+        "https://images.pexels.com/photos/30985153/pexels-photo-30985153.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "https://images.unsplash.com/photo-1664068671643-7d3dfca5babe?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwbW9kZWwlMjB3ZWFyaW5nJTIwZ29sZCUyMG5lY2tsYWNlJTIwZWxlZ2FuY2V8ZW58MHx8fHwxNzcyMDIxMzYwfDA&ixlib=rb-4.1.0&q=85"
+      ]
+    },
+    "icons_library": "Phosphor Icons (Light or Thin weight)",
+    "logo_text": "Use 'Cinzel' font for the text logo 'House of Neelam'."
+  },
+  "customer_app_guidelines": {
+    "navigation": "Centered Logo. Links split Left/Right. Minimal. Transparent header on Hero, Solid White on scroll.",
+    "product_detail_page": "Split screen. Left: Sticky Gallery (Vertical Scroll). Right: Sticky Content. Minimal Accordions for details.",
+    "cart_drawer": "Slide-in from right. Clean, minimal, 'Review Order' focused.",
+    "checkout": "Distraction-free. Remove header navigation. Single column layout."
+  },
+  "admin_panel_guidelines": {
+    "layout": "Sidebar Navigation (Collapsible). Top Header for Search/Profile.",
+    "dashboard_widgets": "Use 'Card' component with dark background. Numbers in Large Manrope font. Trends in Green/Red.",
+    "tables": "Dense. Row height 48px. Alternating row colors (very subtle). Actions column pinned right.",
+    "forms": "Split into sections (Basic Info, Pricing, Inventory, Media). Use Tabs for complex products."
+  },
+  "universal_guidelines": [
+    "Avoid 'AI Slop': No generic centered layouts without purpose.",
+    "No Gradients on Text: Keep text solid, high contrast.",
+    "Buttons: Use 'pill' shape only for primary Call-to-Actions, otherwise use sharp rectangles.",
+    "Micro-interactions: Buttons should scale down slightly (0.98) on click.",
+    "Images: ALWAYS use aspect-ratio classes (aspect-[3/4] for products). Object-cover.",
+    "Data-Test-IDs: Every interactive element must have a data-testid attribute.",
+    "Glassmorphism: Use backdrop-blur-md for sticky headers and modals, but keep opacity high (90%) for legibility.",
+    "Shadows: Use 'shadow-xl' for floating elements, but 'shadow-none' for cards inside grids.",
+    "Toasts: Use Sonner for notifications."
+  ],
+  "instructions_to_main_agent": [
+    "Install 'phosphor-icons' and 'lucide-react'.",
+    "Configure Tailwind with the Sapphire & Gold palette.",
+    "Set up the font imports in index.css.",
+    "Create a 'Layout' component that handles the Customer vs Admin theme switching.",
+    "Use the provided image URLs for seeding the database or static display."
+  ]
+}
