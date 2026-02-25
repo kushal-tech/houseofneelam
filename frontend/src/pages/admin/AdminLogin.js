@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'sonner';
 import { Lock } from 'lucide-react';
+import { useAuth } from '../../contexts/AuthContext';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const AdminLogin = () => {
   const navigate = useNavigate();
+  const { setUser } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -17,11 +19,12 @@ const AdminLogin = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.post(
+      const response = await axios.post(
         `${API}/admin/login`,
         { email, password },
         { withCredentials: true }
       );
+      setUser(response.data);
       toast.success('Login successful');
       navigate('/admin/dashboard');
     } catch (error) {
