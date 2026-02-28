@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useCart } from '../contexts/CartContext';
@@ -8,6 +8,20 @@ import { Lock } from 'lucide-react';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
+
+const loadRazorpayScript = () => {
+  return new Promise((resolve) => {
+    if (window.Razorpay) {
+      resolve(true);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -23,6 +37,30 @@ const Checkout = () => {
     }
   }, [cart, cartLoading, navigate]);
 
+  const handlePaymentSuccess = useCallback(async (response, orderId) => {
+    try {
+      // Verify payment with backend
+      const verifyResponse = await axios.post(
+        `${API}/razorpay/verify`,
+        {
+          razorpay_order_id: response.razorpay_order_id,
+          razorpay_payment_id: response.razorpay_payment_id,
+          razorpay_signature: response.razorpay_signature,
+        },
+        { withCredentials: true }
+      );
+
+      if (verifyResponse.data.status === 'success') {
+        clearCart();
+        toast.success('Payment successful!');
+        navigate(`/order-success?order_id=${orderId}`);
+      }
+    } catch (error) {
+      console.error('Payment verification error:', error);
+      toast.error('Payment verification failed. Please contact support.');
+    }
+  }, [clearCart, navigate]);
+
   const handleCheckout = async (e) => {
     e.preventDefault();
     
@@ -33,6 +71,14 @@ const Checkout = () => {
 
     try {
       setLoading(true);
+
+      // Load Razorpay script
+      const scriptLoaded = await loadRazorpayScript();
+      if (!scriptLoaded) {
+        toast.error('Failed to load payment gateway');
+        setLoading(false);
+        return;
+      }
 
       // Create order
       const orderResponse = await axios.post(
@@ -53,18 +99,42 @@ const Checkout = () => {
 
       const order = orderResponse.data;
 
-      // Create payment session
-      const paymentResponse = await axios.post(
-        `${API}/payment/create-session`,
-        {
-          order_id: order.order_id,
-          origin_url: window.location.origin,
-        },
+      // Create Razorpay order
+      const razorpayResponse = await axios.post(
+        `${API}/razorpay/create-order`,
+        { order_id: order.order_id },
         { withCredentials: true }
       );
 
-      // Redirect to Stripe
-      window.location.href = paymentResponse.data.url;
+      const { razorpay_order_id, razorpay_key_id, amount, currency } = razorpayResponse.data;
+
+      // Initialize Razorpay checkout
+      const options = {
+        key: razorpay_key_id,
+        amount: amount,
+        currency: currency,
+        name: 'House of Neelam',
+        description: 'Jewellery Purchase',
+        order_id: razorpay_order_id,
+        handler: (response) => handlePaymentSuccess(response, order.order_id),
+        prefill: {
+          name: user?.name || '',
+          email: user?.email || guestEmail,
+          contact: guestPhone || '',
+        },
+        theme: {
+          color: '#B8860B',
+        },
+        modal: {
+          ondismiss: () => {
+            setLoading(false);
+            toast.info('Payment cancelled');
+          },
+        },
+      };
+
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
     } catch (error) {
       console.error('Checkout error:', error);
       toast.error('Failed to process checkout. Please try again.');
