@@ -32,6 +32,10 @@ razorpay_client = razorpay.Client(auth=(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET))
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
+# Logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 # Import and initialize enhanced routes
 try:
     from upload_handler import router as upload_router
@@ -50,10 +54,6 @@ try:
     logger.info("Enhanced features loaded successfully")
 except Exception as e:
     logger.warning(f"Enhanced features not loaded: {e}")
-
-# Logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
 
 # ============ MODELS ============
 
