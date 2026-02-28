@@ -12,7 +12,7 @@ import uuid
 from datetime import datetime, timezone, timedelta
 import bcrypt
 import httpx
-from emergentintegrations.payments.stripe.checkout import StripeCheckout, CheckoutSessionResponse, CheckoutStatusResponse, CheckoutSessionRequest
+import razorpay
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -22,8 +22,10 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# Stripe setup
-STRIPE_API_KEY = os.environ['STRIPE_API_KEY']
+# Razorpay setup
+RAZORPAY_KEY_ID = os.environ['RAZORPAY_KEY_ID']
+RAZORPAY_KEY_SECRET = os.environ['RAZORPAY_KEY_SECRET']
+razorpay_client = razorpay.Client(auth=(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET))
 
 # Create the main app
 app = FastAPI()
