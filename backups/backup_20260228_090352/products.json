@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "699ee78b25fcceed39f2fc8b",
+    "product_id": "prod_f03633745e2c",
+    "name": "Royal Sapphire Ring",
+    "description": "Exquisite 18K gold ring featuring a stunning blue sapphire centerpiece, surrounded by brilliant diamonds. A timeless piece for special occasions.",
+    "price": 2499.0,
+    "images": [
+      "https://images.unsplash.com/photo-1763256614634-7feb3ff79ff3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBnb2xkJTIwZGlhbW9uZCUyMHJpbmclMjBqZXdlbHJ5fGVufDB8fHx8MTc3MjAyMTM1OHww&ixlib=rb-4.1.0&q=85"
+    ],
+    "category": "Rings",
+    "stock": 5,
+    "created_at": "2026-02-25T12:14:03.718000",
+    "updated_at": "2026-02-25T12:14:03.718000"
+  },
+  {
+    "_id": "699ee78b25fcceed39f2fc8c",
+    "product_id": "prod_49dd76421e0a",
+    "name": "Heritage Gold Necklace",
+    "description": "Elegant layered gold necklace with intricate traditional patterns. Perfect for weddings and celebrations.",
+    "price": 3999.0,
+    "images": [
+      "https://images.pexels.com/photos/13924051/pexels-photo-13924051.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    ],
+    "category": "Necklaces",
+    "stock": 3,
+    "created_at": "2026-02-25T12:14:03.718000",
+    "updated_at": "2026-02-25T12:14:03.718000"
+  },
+  {
+    "_id": "699ee78b25fcceed39f2fc8d",
+    "product_id": "prod_47b3e8458de5",
+    "name": "Diamond Stud Earrings",
+    "description": "Classic diamond stud earrings set in 18K white gold. A versatile addition to any jewellery collection.",
+    "price": 1899.0,
+    "images": [
+      "https://images.unsplash.com/photo-1765614765034-ab49d03d4c28?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBnb2xkJTIwZGlhbW9uZCUyMHJpbmclMjBqZXdlbHJ5fGVufDB8fHx8MTc3MjAyMTM1OHww&ixlib=rb-4.1.0&q=85"
+    ],
+    "category": "Earrings",
+    "stock": 8,
+    "created_at": "2026-02-25T12:14:03.718000",
+    "updated_at": "2026-02-25T12:14:03.718000"
+  },
+  {
+    "_id": "699ee78b25fcceed39f2fc8e",
+    "product_id": "prod_aa113bc99e3d",
+    "name": "Vintage Pearl Bracelet",
+    "description": "Delicate pearl bracelet with gold clasp. Timeless elegance for everyday wear.",
+    "price": 899.0,
+    "images": [
+      "https://images.pexels.com/photos/8901265/pexels-photo-8901265.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    ],
+    "category": "Bracelets",
+    "stock": 12,
+    "created_at": "2026-02-25T12:14:03.718000",
+    "updated_at": "2026-02-25T12:14:03.718000"
+  },
+  {
+    "_id": "699f010e2bb050b62c557cd6",
+    "name": "Green Peral Necklace",
+    "description": "Green Peral Necklace",
+    "price": 2000.0,
+    "images": [
+      "https://www.google.com/abc.png"
+    ],
+    "category": "Necklaces",
+    "stock": 1,
+    "product_id": "prod_5f5ef09d2f14",
+    "created_at": "2026-02-25T14:02:54.338000",
+    "updated_at": "2026-02-25T14:02:54.338000"
+  }
+]

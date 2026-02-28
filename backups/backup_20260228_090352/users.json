@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "699ee91b45574b8d76fef58b",
+    "user_id": "user_08b9a0bee7f8",
+    "phone": "5550122043",
+    "email": "guest_user_08b9a0bee7f8@houseofneelam.com",
+    "name": "Guest",
+    "role": "guest",
+    "created_at": "2026-02-25T12:20:43.936000"
+  },
+  {
+    "_id": "699ee947e7a54775d5ce587e",
+    "user_id": "user_0be10a1a26a9",
+    "email": "admin@houseofneelam.com",
+    "name": "Admin",
+    "role": "admin",
+    "created_at": "2026-02-25T12:21:27.759000"
+  },
+  {
+    "_id": "699ee947e7a54775d5ce5880",
+    "user_id": "user_eb300aa5a400",
+    "phone": "5550122127",
+    "email": "guest_user_eb300aa5a400@houseofneelam.com",
+    "name": "Guest",
+    "role": "guest",
+    "created_at": "2026-02-25T12:21:27.865000"
+  },
+  {
+    "_id": "699eeb0ce7a54775d5ce588a",
+    "user_id": "user_34e94f5a2d56",
+    "phone": "5550122859",
+    "email": "guest_user_34e94f5a2d56@houseofneelam.com",
+    "name": "Guest",
+    "role": "guest",
+    "created_at": "2026-02-25T12:29:00.082000"
+  }
+]
