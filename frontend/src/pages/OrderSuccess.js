@@ -13,56 +13,33 @@ const OrderSuccess = () => {
   const { clearCart } = useCart();
   const [status, setStatus] = useState('checking');
   const [order, setOrder] = useState(null);
-  const [attempts, setAttempts] = useState(0);
 
   useEffect(() => {
-    const sessionId = searchParams.get('session_id');
-    if (!sessionId) {
+    const orderId = searchParams.get('order_id');
+    
+    if (!orderId) {
       navigate('/');
       return;
     }
 
-    pollPaymentStatus(sessionId);
+    fetchOrderDetails(orderId);
   }, [searchParams, navigate]);
 
-  const pollPaymentStatus = async (sessionId, currentAttempts = 0) => {
-    const maxAttempts = 5;
-    const pollInterval = 2000;
-
-    if (currentAttempts >= maxAttempts) {
-      setStatus('timeout');
-      return;
-    }
-
+  const fetchOrderDetails = async (orderId) => {
     try {
-      const response = await axios.get(`${API}/payment/status/${sessionId}`, {
+      const response = await axios.get(`${API}/orders/${orderId}`, {
         withCredentials: true,
       });
-
-      if (response.data.payment_status === 'paid') {
+      
+      if (response.data) {
+        setOrder(response.data);
         setStatus('success');
         clearCart();
-        // Fetch order details
-        const orderResponse = await axios.get(
-          `${API}/orders?session_id=${sessionId}`,
-          { withCredentials: true }
-        );
-        if (orderResponse.data && orderResponse.data.length > 0) {
-          setOrder(orderResponse.data[0]);
-        }
-        return;
-      } else if (response.data.status === 'expired') {
+      } else {
         setStatus('failed');
-        return;
       }
-
-      setStatus('processing');
-      setTimeout(() => {
-        setAttempts(currentAttempts + 1);
-        pollPaymentStatus(sessionId, currentAttempts + 1);
-      }, pollInterval);
     } catch (error) {
-      console.error('Error checking payment status:', error);
+      console.error('Error fetching order:', error);
       setStatus('error');
     }
   };
