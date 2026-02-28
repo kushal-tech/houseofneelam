@@ -10,7 +10,7 @@ import json
 from datetime import datetime
 
 class HouseOfNeelamTester:
-    def __init__(self, base_url="https://neelam-commerce.preview.emergentagent.com"):
+    def __init__(self, base_url="https://neelam-ecommerce.preview.emergentagent.com"):
         self.base_url = base_url
         self.api_base = f"{base_url}/api"
         self.admin_token = None
