@@ -14,6 +14,7 @@ import AuthCallback from './pages/AuthCallback';
 import Checkout from './pages/Checkout';
 import OrderSuccess from './pages/OrderSuccess';
 import Orders from './pages/Orders';
+import Wishlist from './pages/Wishlist';
 
 // Admin Pages
 import AdminLogin from './pages/admin/AdminLogin';
@@ -22,6 +23,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminOrders from './pages/admin/AdminOrders';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminProductForm from './pages/admin/AdminProductForm';
+import AdminCategories from './pages/admin/AdminCategories';
 
 import './App.css';
 
