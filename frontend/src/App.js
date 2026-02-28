@@ -120,6 +120,14 @@ function AppRouter() {
           </CustomerLayout>
         }
       />
+      <Route
+        path="/wishlist"
+        element={
+          <CustomerLayout>
+            <Wishlist />
+          </CustomerLayout>
+        }
+      />
 
       {/* Admin Routes */}
       <Route path="/admin/login" element={<AdminLogin />} />
@@ -137,6 +145,7 @@ function AppRouter() {
         <Route path="products" element={<AdminProducts />} />
         <Route path="products/new" element={<AdminProductForm />} />
         <Route path="products/:id/edit" element={<AdminProductForm />} />
+        <Route path="categories" element={<AdminCategories />} />
       </Route>
     </Routes>
   );
