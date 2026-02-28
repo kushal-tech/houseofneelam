@@ -666,6 +666,51 @@ async def startup_event():
         ]
         await db.products.insert_many(sample_products)
         logger.info(f"Seeded {len(sample_products)} products")
+    
+    # Seed categories
+    category_count = await db.categories.count_documents({})
+    if category_count == 0:
+        logger.info("Seeding categories...")
+        sample_categories = [
+            {
+                "category_id": f"cat_{uuid.uuid4().hex[:12]}",
+                "name": "Rings",
+                "slug": "rings",
+                "description": "Exquisite rings for every occasion",
+                "subcategories": ["Engagement Rings", "Wedding Bands", "Fashion Rings", "Cocktail Rings"],
+                "created_at": datetime.now(timezone.utc),
+                "updated_at": datetime.now(timezone.utc)
+            },
+            {
+                "category_id": f"cat_{uuid.uuid4().hex[:12]}",
+                "name": "Necklaces",
+                "slug": "necklaces",
+                "description": "Beautiful necklaces and pendants",
+                "subcategories": ["Pendant Necklaces", "Chain Necklaces", "Statement Necklaces", "Pearl Necklaces"],
+                "created_at": datetime.now(timezone.utc),
+                "updated_at": datetime.now(timezone.utc)
+            },
+            {
+                "category_id": f"cat_{uuid.uuid4().hex[:12]}",
+                "name": "Earrings",
+                "slug": "earrings",
+                "description": "Elegant earrings collection",
+                "subcategories": ["Stud Earrings", "Drop Earrings", "Hoop Earrings", "Chandelier Earrings"],
+                "created_at": datetime.now(timezone.utc),
+                "updated_at": datetime.now(timezone.utc)
+            },
+            {
+                "category_id": f"cat_{uuid.uuid4().hex[:12]}",
+                "name": "Bracelets",
+                "slug": "bracelets",
+                "description": "Stunning bracelets and bangles",
+                "subcategories": ["Tennis Bracelets", "Charm Bracelets", "Bangles", "Cuff Bracelets"],
+                "created_at": datetime.now(timezone.utc),
+                "updated_at": datetime.now(timezone.utc)
+            }
+        ]
+        await db.categories.insert_many(sample_categories)
+        logger.info(f"Seeded {len(sample_categories)} categories")
 
 app.include_router(api_router)
 
