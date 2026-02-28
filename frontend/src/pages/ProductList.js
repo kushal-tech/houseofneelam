@@ -54,24 +54,24 @@ const ProductList = () => {
   };
 
   return (
-    <div className=\"min-h-screen bg-white py-24 px-4\">
-      <div className=\"max-w-7xl mx-auto\">
+    <div className="min-h-screen bg-white py-24 px-4">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className=\"text-center mb-12\">
-          <p className=\"text-xs uppercase tracking-widest text-gold-metallic font-medium mb-4\">
+        <div className="text-center mb-12">
+          <p className="text-xs uppercase tracking-widest text-gold-metallic font-medium mb-4">
             Our Collection
           </p>
-          <h1 className=\"font-display text-4xl lg:text-5xl text-sapphire-deep mb-2\">
+          <h1 className="font-display text-4xl lg:text-5xl text-sapphire-deep mb-2">
             Exquisite Jewellery
           </h1>
-          <p className=\"text-neutral-stone\">
+          <p className="text-neutral-stone">
             {totalCount} {totalCount === 1 ? 'Product' : 'Products'}
           </p>
         </div>
 
-        <div className=\"grid grid-cols-1 lg:grid-cols-4 gap-8\">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Filters Sidebar */}
-          <aside className=\"lg:col-span-1\">
+          <aside className="lg:col-span-1">
             <ProductFilters 
               onFilterChange={setFilters} 
               categories={categories}
@@ -79,23 +79,23 @@ const ProductList = () => {
           </aside>
 
           {/* Products Grid */}
-          <div className=\"lg:col-span-3\">
+          <div className="lg:col-span-3">
             {loading ? (
-              <div className=\"flex justify-center items-center py-24\">
-                <div className=\"animate-spin rounded-full h-12 w-12 border-b-2 border-gold-metallic\"></div>
+              <div className="flex justify-center items-center py-24">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold-metallic"></div>
               </div>
             ) : products.length > 0 ? (
-              <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12\" data-testid=\"products-grid\">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12" data-testid="products-grid">
                 {products.map((product) => (
                   <ProductCard key={product.product_id} product={product} />
                 ))}
               </div>
             ) : (
-              <div className=\"text-center py-24 bg-neutral-alabaster\">
-                <p className=\"text-neutral-stone text-lg\">No products found matching your filters.</p>
+              <div className="text-center py-24 bg-neutral-alabaster">
+                <p className="text-neutral-stone text-lg">No products found matching your filters.</p>
                 <button
                   onClick={() => setFilters({})}
-                  className=\"mt-4 text-gold-metallic hover:text-gold-matte font-medium\"
+                  className="mt-4 text-gold-metallic hover:text-gold-matte font-medium"
                 >
                   Clear Filters
                 </button>
