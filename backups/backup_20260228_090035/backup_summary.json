@@ -1,0 +1,26 @@
+{
+  "timestamp": "20260228_090035",
+  "database": "test_database",
+  "collections": {
+    "orders": {
+      "document_count": 6,
+      "file": "/app/backups/backup_20260228_090035/orders.json"
+    },
+    "products": {
+      "document_count": 5,
+      "file": "/app/backups/backup_20260228_090035/products.json"
+    },
+    "users": {
+      "document_count": 4,
+      "file": "/app/backups/backup_20260228_090035/users.json"
+    },
+    "payment_transactions": {
+      "document_count": 5,
+      "file": "/app/backups/backup_20260228_090035/payment_transactions.json"
+    },
+    "user_sessions": {
+      "document_count": 13,
+      "file": "/app/backups/backup_20260228_090035/user_sessions.json"
+    }
+  }
+}
