@@ -25,22 +25,36 @@ const Navigation = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-sapphire-deep hover:text-gold-metallic transition-colors font-medium" data-testid="nav-home">
+            <div className="hidden md:flex items-center space-x-6 flex-1 max-w-2xl mx-8">
+              <Link to="/" className="text-sapphire-deep hover:text-gold-metallic transition-colors font-medium whitespace-nowrap" data-testid="nav-home">
                 Home
               </Link>
-              <Link to="/products" className="text-sapphire-deep hover:text-gold-metallic transition-colors font-medium" data-testid="nav-products">
+              <Link to="/products" className="text-sapphire-deep hover:text-gold-metallic transition-colors font-medium whitespace-nowrap" data-testid="nav-products">
                 Collection
               </Link>
               {user && user.role === 'customer' && (
-                <Link to="/orders" className="text-sapphire-deep hover:text-gold-metallic transition-colors font-medium" data-testid="nav-orders">
-                  My Orders
+                <Link to="/orders" className="text-sapphire-deep hover:text-gold-metallic transition-colors font-medium whitespace-nowrap" data-testid="nav-orders">
+                  Orders
                 </Link>
               )}
+              <div className="flex-1">
+                <SearchBar />
+              </div>
             </div>
 
             {/* Right Actions */}
             <div className="flex items-center space-x-4">
+              {/* Wishlist */}
+              {user && user.role === 'customer' && (
+                <Link
+                  to="/wishlist"
+                  className="hidden md:block p-2 text-sapphire-deep hover:text-gold-metallic transition-colors"
+                  data-testid="wishlist-button"
+                >
+                  <Heart className="h-6 w-6" />
+                </Link>
+              )}
+
               {/* Cart */}
               <button
                 onClick={() => setCartOpen(true)}
