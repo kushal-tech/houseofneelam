@@ -28,7 +28,7 @@ async def get_products_enhanced(
     limit: int = Query(50, le=100),
     skip: int = 0
 ):
-    """Enhanced product listing with advanced filters\"\"\"
+    """Enhanced product listing with advanced filters"""
     query = {}
     
     # Category filter
@@ -94,7 +94,7 @@ async def search_products(
     q: str = Query(..., min_length=2),
     limit: int = Query(20, le=50)
 ):
-    """Search products by name, description, or tags\"\"\"
+    """Search products by name, description, or tags"""
     query = {
         "$or": [
             {"name": {"$regex": q, "$options": "i"}},
@@ -120,7 +120,7 @@ async def add_to_wishlist(
     authorization: Optional[str] = Header(None),
     session_token: Optional[str] = Cookie(None)
 ):
-    """Add product to wishlist\"\"\"
+    """Add product to wishlist"""
     # Get user from session
     from server import get_current_user
     user = await get_current_user(authorization, session_token)
@@ -156,7 +156,7 @@ async def remove_from_wishlist(
     authorization: Optional[str] = Header(None),
     session_token: Optional[str] = Cookie(None)
 ):
-    """Remove product from wishlist\"\"\"
+    """Remove product from wishlist"""
     from server import get_current_user
     user = await get_current_user(authorization, session_token)
     if not user:
@@ -177,7 +177,7 @@ async def get_wishlist(
     authorization: Optional[str] = Header(None),
     session_token: Optional[str] = Cookie(None)
 ):
-    """Get user's wishlist with product details\"\"\"
+    """Get user's wishlist with product details"""
     from server import get_current_user
     user = await get_current_user(authorization, session_token)
     if not user:
@@ -210,7 +210,7 @@ async def create_review(
     authorization: Optional[str] = Header(None),
     session_token: Optional[str] = Cookie(None)
 ):
-    """Create a product review\"\"\"
+    """Create a product review"""
     from server import get_current_user
     user = await get_current_user(authorization, session_token)
     if not user:
@@ -234,7 +234,7 @@ async def create_review(
         raise HTTPException(status_code=400, detail="You have already reviewed this product")
     
     # Create review
-    review_id = f\"review_{uuid.uuid4().hex[:12]}\"
+    review_id = f"review_{uuid.uuid4().hex[:12]}"
     review_data = {
         "review_id": review_id,
         "product_id": review.product_id,
@@ -263,7 +263,7 @@ async def create_review(
 
 @router.get("/reviews/{product_id}")
 async def get_product_reviews(product_id: str):
-    """Get all reviews for a product\"\"\"
+    """Get all reviews for a product"""
     reviews = await db.reviews.find({"product_id": product_id}, {"_id": 0}).sort("created_at", -1).to_list(1000)
     
     for review in reviews:
@@ -276,6 +276,6 @@ async def get_product_reviews(product_id: str):
 
 @router.get("/categories")
 async def get_all_categories():
-    """Get all categories for customer browsing\"\"\"
+    """Get all categories for customer browsing"""
     categories = await db.categories.find({}, {"_id": 0}).to_list(1000)
     return categories
