@@ -87,4 +87,7 @@ venv.bak/
 .eslintcache
 
 # Production
-*.production
+*.production-e 
+# Environment files
+*.env
+*.env.*
